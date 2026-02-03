@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Fukuoka Luxury Trip</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            100: '#F9F1D8',
+                            300: '#E8D090',
+                            500: '#D4AF37', // Classic Gold
+                            600: '#AA8C2C',
+                            900: '#5E4B10',
+                        },
+                        richblack: '#0F1115',
+                        charcoal: '#1A1D23',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Lato"', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'gradient-gold': 'linear-gradient(135deg, #D4AF37 0%, #AA8C2C 100%)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0F1115;
+            color: #E2E8F0;
+            font-family: 'Lato', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            padding-bottom: 80px; /* Space for bottom nav */
+        }
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .gold-text {
+            background: linear-gradient(to right, #F9F1D8, #D4AF37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card {
+            background: #1A1D23;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+        .btn-gold {
+            background: linear-gradient(135deg, #D4AF37 0%, #AA8C2C 100%);
+            color: #0F1115;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            transition: transform 0.1s;
+        }
+        .btn-gold:active {
+            transform: scale(0.98);
+        }
+        /* Hide scrollbar for clean look */
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+        .nav-item.active {
+            color: #D4AF37;
+        }
+        .nav-item.active i {
+            transform: translateY(-5px);
+            filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.6));
+        }
+        /* Input Styling */
+        input, textarea, select {
+            background-color: #0F1115 !important;
+            border: 1px solid #333 !important;
+            color: #F9F1D8 !important;
+        }
+        input:focus, textarea:focus {
+            border-color: #D4AF37 !important;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="p-6 text-center border-b border-white/10 sticky top-0 bg-richblack/90 z-40 backdrop-blur-md">
+        <h1 class="text-2xl font-bold tracking-widest gold-text uppercase">Fukuoka Trip</h1>
+        <p class="text-xs text-gray-400 tracking-wider mt-1">LUXURY EDITION</p>
+    </header>
+
+    <main id="app-container" class="p-4 max-w-md mx-auto relative">
+
+        <section id="tab-plan" class="tab-content fade-in">
+            <div class="card rounded-xl p-5 mb-6 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-20 h-20 bg-gold-500/10 rounded-bl-full"></div>
+                <h3 class="text-gold-500 text-sm uppercase tracking-widest mb-4 border-b border-white/10 pb-2">Flight Info</h3>
+                <div class="flex justify-between items-center mb-3">
+                    <div class="text-center">
+                        <span class="block text-2xl font-serif font-bold text-white">TPE</span>
+                        <span class="text-xs text-gray-500">台北</span>
+                    </div>
+                    <div class="flex-1 text-center px-2">
+                        <i class="fas fa-plane text-gold-500"></i>
+                        <div class="h-[1px] bg-gold-500/30 w-full mt-1"></div>
+                        <span class="text-[10px] text-gold-300">CI110 / CI129</span>
+                    </div>
+                    <div class="text-center">
+                        <span class="block text-2xl font-serif font-bold text-white">FUK</span>
+                        <span class="text-xs text-gray-500">福岡</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card rounded-xl p-5 mb-8 flex items-start space-x-4">
+                <div class="bg-gold-500/20 p-3 rounded-full text-gold-500">
+                    <i class="fas fa-hotel"></i>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold text-lg leading-tight">福岡東急STAY飯店</h3>
+                    <p class="text-xs text-gray-400 mt-1">Tokyu Stay Fukuoka Tenjin</p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Tokyu+Stay+Fukuoka+Tenjin" target="_blank" class="inline-block mt-3 text-xs border border-gold-500 text-gold-500 px-3 py-1 rounded-full hover:bg-gold-500 hover:text-black transition">
+                        <i class="fas fa-map-marker-alt mr-1"></i> 導航
+                    </a>
+                </div>
+            </div>
+
+            <div class="space-y-8 pl-2">
+                
+                <div class="relative border-l border-gold-500/30 pl-6 pb-2">
+                    <div class="absolute -left-1.5 top-0 w-3 h-3 bg-gold-500 rounded-full shadow-[0_0_10px_#D4AF37]"></div>
+                    <h2 class="text-xl font-serif text-gold-100 mb-1">Day 01 | 抵達與放鬆</h2>
+                    <p class="text-sm text-gray-400 mb-4">市區悠閒恢復體力</p>
+                    
+                    <div class="card rounded-lg p-4 mb-3">
+                        <div class="flex justify-between items-start">
+                            <h4 class="font-bold text-white">福岡機場 -> 飯店</h4>
+                            <span class="text-xs bg-gray-700 px-2 py-1 rounded text-gray-300">Check-in</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card rounded-lg p-4">
+                        <h4 class="font-bold text-white mb-2">天神/博多市區散策</h4>
+                        <p class="text-xs text-gray-400 mb-3">建議前往屋台街體驗當地美食，或在運河城逛街。</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Fukuoka+Yatai" target="_blank" class="text-xs text-gold-400 underline">查看屋台位置</a>
+                    </div>
+                </div>
+
+                <div class="relative border-l border-gold-500/30 pl-6 pb-2">
+                    <div class="absolute -left-1.5 top-0 w-3 h-3 bg-gold-500 rounded-full shadow-[0_0_10px_#D4AF37]"></div>
+                    <h2 class="text-xl font-serif text-gold-100 mb-1">Day 02 | 復古與夜景</h2>
+                    <p class="text-sm text-gray-400 mb-4">門司港・皿倉山・小倉城</p>
+
+                    <div class="card rounded-lg p-4 mb-3 border-l-4 border-gold-500">
+                        <h4 class="font-bold text-white">🚂 門司港懷舊區</h4>
+                        <p class="text-xs text-gray-400 mt-1">必吃：燒咖哩</p>
+                    </div>
+
+                    <div class="card rounded-lg p-4 mb-3">
+                        <h4 class="font-bold text-white">🏯 小倉城</h4>
+                    </div>
+
+                    <div class="card rounded-lg p-4 mb-3 bg-gray-800/80">
+                        <div class="flex items-center text-gold-400 mb-2">
+                            <i class="fas fa-star mr-2"></i>
+                            <span class="text-xs font-bold uppercase">Highlight</span>
+                        </div>
+                        <h4 class="font-bold text-white">🌃 皿倉山百億夜景</h4>
+                        <p class="text-xs text-gray-400 mt-1">記得查好纜車末班時間。</p>
+                    </div>
+                </div>
+
+                <div class="relative border-l border-gold-500/30 pl-6 pb-2">
+                    <div class="absolute -left-1.5 top-0 w-3 h-3 bg-gold-500 rounded-full"></div>
+                    <h2 class="text-xl font-serif text-gold-100 mb-1">Day 03 | 文化與水鄉</h2>
+                    <p class="text-sm text-gray-400 mb-4">太宰府・柳川遊船</p>
+
+                    <div class="card rounded-lg p-4 mb-3">
+                        <h4 class="font-bold text-white">⛩️ 太宰府天滿宮</h4>
+                        <p class="text-xs text-gray-400 mt-1">必吃：梅枝餅。欣賞隈研吾設計的星巴克。</p>
+                    </div>
+                    <div class="card rounded-lg p-4">
+                        <h4 class="font-bold text-white">🚣 柳川遊船</h4>
+                        <p class="text-xs text-gray-400 mt-1">午餐推薦：本吉屋鰻魚飯。</p>
+                    </div>
+                </div>
+
+                 <div class="relative border-l border-gold-500/30 pl-6 pb-2">
+                    <div class="absolute -left-1.5 top-0 w-3 h-3 bg-gold-500 rounded-full"></div>
+                    <h2 class="text-xl font-serif text-gold-100 mb-1">Day 04 | 購物與休閒</h2>
+                    <p class="text-sm text-gray-400 mb-4">LaLaport・大濠公園</p>
+
+                    <div class="card rounded-lg p-4 mb-3">
+                        <h4 class="font-bold text-white">🛍️ LaLaport 福岡</h4>
+                        <p class="text-xs text-gray-400 mt-1">看 1:1 鋼彈立像，最後採購。</p>
+                    </div>
+                    <div class="card rounded-lg p-4">
+                        <h4 class="font-bold text-white">🌳 大濠公園</h4>
+                        <p class="text-xs text-gray-400 mt-1">在湖邊咖啡廳享受最後的悠閒午後。</p>
+                    </div>
+                </div>
+
+                <div class="relative border-l border-transparent pl-6 pb-2">
+                    <div class="absolute -left-1.5 top-0 w-3 h-3 bg-gray-500 rounded-full"></div>
+                    <h2 class="text-xl font-serif text-gold-100 mb-1">Day 05 | 返程</h2>
+                    <div class="card rounded-lg p-4 mt-4 bg-red-900/20 border-red-900/50">
+                        <h4 class="font-bold text-red-200">✈️ 前往機場 (CI129)</h4>
+                        <p class="text-xs text-red-200/70 mt-1">請預留 3 小時抵達機場辦理登機。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tab-guide" class="tab-content hidden fade-in">
+            <h2 class="text-3xl font-serif text-gold-500 mb-6 border-b border-gray-700 pb-2">Guide Book</h2>
+            
+            <article class="mb-10">
+                <h3 class="text-xl font-bold text-white mb-2">門司港 Retro</h3>
+                <p class="text-sm text-gray-400 leading-relaxed text-justify mb-4">
+                    <span class="text-3xl float-left mr-2 mt-[-5px] font-serif text-gold-500">曾</span>經是日本三大港口之一，門司港保留了許多大正時期的洋式建築。這裡的氛圍優雅而懷舊，彷彿時間凍結在百年前。推薦在夕陽西下時散步於港邊，欣賞關門海峽的景色。
+                </p>
+                <div class="bg-gray-800 p-3 rounded text-xs text-gold-300 italic border-l-2 border-gold-500">
+                    💡 冷知識：門司港車站是日本唯一被列為國家重要文化財的車站建築，記得去二樓的舊貴賓室看看。
+                </div>
+            </article>
+
+             <div class="card p-2 rounded-xl mb-10">
+                <h4 class="text-sm font-bold text-center mb-2 text-gray-300">LaLaport Gundam Park</h4>
+                <div class="w-full h-48 bg-gray-700 rounded overflow-hidden">
+                    <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=130.4190%2C33.5500%2C130.4250%2C33.5560&amp;layer=mapnik&amp;marker=33.5530%2C130.4220" style="border: 0"></iframe>
+                </div>
+                <div class="text-center mt-2">
+                    <a href="https://www.google.com/maps/search/?api=1&query=LaLaport+Fukuoka" class="text-xs text-gold-500 underline">在 Google Maps 開啟</a>
+                </div>
+            </div>
+
+            <article class="mb-10">
+                <h3 class="text-xl font-bold text-white mb-2">太宰府天滿宮</h3>
+                <p class="text-sm text-gray-400 leading-relaxed text-justify">
+                    供奉「學問之神」菅原道真。參道上熱騰騰的「梅枝餅」是必嚐美食，傳說能除病保平安。這裡也是賞梅名所，每年2月至3月，6000多株梅花競相綻放。
+                </p>
+            </article>
+        </section>
+
+        <section id="tab-wallet" class="tab-content hidden fade-in">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-2xl font-serif text-gold-500">Wallet</h2>
+                <div class="flex items-center space-x-2">
+                    <span class="text-xs text-gray-400">匯率: 0.</span>
+                    <input type="number" id="exchange-rate" value="22" class="w-12 text-center text-xs p-1 rounded bg-gray-800 border border-gray-600 focus:border-gold-500 text-white" onchange="saveRate()">
+                </div>
+            </div>
+
+            <div class="card p-5 rounded-xl mb-6 sticky top-20 z-30">
+                <div class="grid grid-cols-3 gap-3 mb-3">
+                    <div class="col-span-2">
+                        <label class="text-[10px] text-gray-400 uppercase">品項</label>
+                        <input type="text" id="item-name" placeholder="例如：拉麵" class="w-full p-2 rounded text-sm bg-gray-900 border border-gray-700 text-white">
+                    </div>
+                    <div>
+                        <label class="text-[10px] text-gray-400 uppercase">日幣 (可算式)</label>
+                        <input type="text" id="item-price" placeholder="1000+50" class="w-full p-2 rounded text-sm bg-gray-900 border border-gray-700 text-white font-mono" onblur="calculateInput(this)">
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <label class="flex items-center justify-center w-full h-10 border border-dashed border-gray-600 rounded cursor-pointer hover:border-gold-500 transition bg-gray-900/50">
+                        <div class="flex items-center space-x-2 text-gray-400">
+                            <i class="fas fa-camera"></i>
+                            <span class="text-xs">拍張照 / 上傳收據</span>
+                        </div>
+                        <input type="file" id="item-photo" accept="image/*" class="hidden" onchange="previewImage()">
+                    </label>
+                    <div id="preview-container" class="hidden mt-2 text-center">
+                        <img id="photo-preview" class="h-20 mx-auto rounded border border-gold-500/30 object-cover">
+                        <button onclick="clearImage()" class="text-xs text-red-400 mt-1 underline">移除照片</button>
+                    </div>
+                </div>
+
+                <button onclick="addExpense()" class="btn-gold w-full py-3 rounded-lg shadow-lg font-bold tracking-wider">
+                    記一筆
+                </button>
+            </div>
+
+            <div class="flex justify-between items-end mb-4 px-2">
+                <div>
+                    <p class="text-xs text-gray-400">總支出 (TWD)</p>
+                    <p id="total-twd" class="text-2xl font-serif text-white font-bold">NT$ 0</p>
+                </div>
+                <div class="text-right">
+                    <p class="text-xs text-gray-400">總支出 (JPY)</p>
+                    <p id="total-jpy" class="text-lg font-mono text-gold-300">¥ 0</p>
+                </div>
+            </div>
+
+            <div id="expense-list" class="space-y-3 pb-20">
+                <div class="text-center text-gray-600 text-sm mt-10">尚無記帳紀錄</div>
+            </div>
+        </section>
+
+        <section id="tab-lists" class="tab-content hidden fade-in">
+            <h2 class="text-2xl font-serif text-gold-500 mb-4">Checklist</h2>
+            
+            <div class="card p-4 rounded-xl mb-6">
+                <h3 class="text-sm font-bold text-white mb-3 border-b border-gray-700 pb-1">必備物品</h3>
+                <ul class="space-y-3" id="checklist-container">
+                    </ul>
+            </div>
+
+            <h2 class="text-2xl font-serif text-gold-500 mb-4">Memo</h2>
+            <div class="card p-4 rounded-xl">
+                <textarea id="memo-area" class="w-full h-40 bg-transparent text-sm text-gray-300 border-none resize-none focus:ring-0 p-0 leading-relaxed" placeholder="在這裡輸入筆記或是貼上網址，系統會自動轉換網址為按鈕..." oninput="saveMemo()"></textarea>
+                <div id="memo-links" class="mt-4 flex flex-wrap gap-2">
+                    </div>
+            </div>
+        </section>
+
+        <section id="tab-info" class="tab-content hidden fade-in">
+            <h2 class="text-2xl font-serif text-gold-500 mb-6">Information</h2>
+
+            <div class="grid grid-cols-2 gap-4 mb-6">
+                <a href="https://www.jma.go.jp/bosai/forecast/" target="_blank" class="card p-4 rounded-xl flex flex-col items-center justify-center aspect-square hover:bg-gray-800 transition">
+                    <i class="fas fa-cloud-sun text-4xl text-blue-300 mb-2"></i>
+                    <span class="text-sm font-bold">天氣預報</span>
+                </a>
+                <a href="tel:119" class="card p-4 rounded-xl flex flex-col items-center justify-center aspect-square hover:bg-gray-800 transition border-red-900/30">
+                    <i class="fas fa-ambulance text-4xl text-red-500 mb-2"></i>
+                    <span class="text-sm font-bold text-red-400">緊急 119</span>
+                </a>
+            </div>
+
+            <div class="card p-5 rounded-xl mb-4 border-l-4 border-red-500">
+                <h3 class="font-bold text-white mb-2"><i class="fas fa-triangle-exclamation mr-2 text-red-500"></i>重要提醒</h3>
+                <ul class="list-disc list-inside text-sm text-gray-400 space-y-2">
+                    <li>日本電壓為 100V，插座為雙平腳（與台灣相同）。</li>
+                    <li>路上禁止吸菸，請至指定吸菸區。</li>
+                    <li>電車內請將手機設為靜音，避免通話。</li>
+                    <li>入境日本請務必填寫 <a href="https://vjw-lp.digital.go.jp/zh-hant/" target="_blank" class="text-gold-500 underline">Visit Japan Web</a>。</li>
+                </ul>
+            </div>
+
+            <div class="card p-5 rounded-xl">
+                 <h3 class="font-bold text-white mb-2">台北駐大阪經濟文化辦事處福岡分處</h3>
+                 <p class="text-xs text-gray-400">福岡市中央區櫻坂 3-12-42</p>
+                 <a href="tel:+81-92-734-2810" class="btn-gold text-xs px-4 py-2 rounded mt-3 inline-block">撥打電話</a>
+            </div>
+        </section>
+
+    </main>
+
+    <nav class="fixed bottom-0 left-0 w-full bg-richblack/95 backdrop-blur-lg border-t border-white/10 flex justify-around py-3 px-2 z-50 shadow-[0_-5px_20px_rgba(0,0,0,0.5)]">
+        <button onclick="switchTab('plan')" class="nav-item active flex flex-col items-center text-gray-500 w-1/5 transition-all duration-300" data-target="plan">
+            <i class="fas fa-calendar-alt text-lg mb-1"></i>
+            <span class="text-[10px] tracking-widest uppercase">Plan</span>
+        </button>
+        <button onclick="switchTab('guide')" class="nav-item flex flex-col items-center text-gray-500 w-1/5 transition-all duration-300" data-target="guide">
+            <i class="fas fa-book-open text-lg mb-1"></i>
+            <span class="text-[10px] tracking-widest uppercase">Guide</span>
+        </button>
+        <button onclick="switchTab('wallet')" class="nav-item flex flex-col items-center text-gray-500 w-1/5 transition-all duration-300" data-target="wallet">
+            <i class="fas fa-wallet text-lg mb-1"></i>
+            <span class="text-[10px] tracking-widest uppercase">Wallet</span>
+        </button>
+        <button onclick="switchTab('lists')" class="nav-item flex flex-col items-center text-gray-500 w-1/5 transition-all duration-300" data-target="lists">
+            <i class="fas fa-list-check text-lg mb-1"></i>
+            <span class="text-[10px] tracking-widest uppercase">Lists</span>
+        </button>
+        <button onclick="switchTab('info')" class="nav-item flex flex-col items-center text-gray-500 w-1/5 transition-all duration-300" data-target="info">
+            <i class="fas fa-circle-info text-lg mb-1"></i>
+            <span class="text-[10px] tracking-widest uppercase">Info</span>
+        </button>
+    </nav>
+
+    <script>
+        // --- Initialization ---
+        document.addEventListener('DOMContentLoaded', () => {
+            loadWallet();
+            loadChecklist();
+            loadMemo();
+            loadRate();
+        });
+
+        // --- Navigation Logic ---
+        function switchTab(tabId) {
+            // Hide all sections
+            document.querySelectorAll('.tab-content').forEach(el => {
+                el.classList.add('hidden');
+            });
+            // Show target section
+            document.getElementById(`tab-${tabId}`).classList.remove('hidden');
+            
+            // Update Nav Icons
+            document.querySelectorAll('.nav-item').forEach(el => {
+                el.classList.remove('active', 'text-gold-500');
+                el.classList.add('text-gray-500');
+            });
+            const activeBtn = document.querySelector(`button[data-target="${tabId}"]`);
+            activeBtn.classList.add('active', 'text-gold-500');
+            activeBtn.classList.remove('text-gray-500');
+            
+            window.scrollTo(0,0);
+        }
+
+        // --- Wallet Logic ---
+        let currentImageBase64 = null;
+
+        function loadRate() {
+            const rate = localStorage.getItem('trip_rate') || 0.22;
+            document.getElementById('exchange-rate').value = (rate * 100).toFixed(0);
+        }
+
+        function saveRate() {
+            const val = document.getElementById('exchange-rate').value;
+            localStorage.setItem('trip_rate', val / 100);
+            renderExpenses(); // Re-calc totals
+        }
+
+        function calculateInput(input) {
+            try {
+                // Allow simple math (e.g. 500+200*2)
+                if(input.value.match(/^[0-9+\-*/().\s]+$/)) {
+                    input.value = eval(input.value);
+                }
+            } catch (e) {
+                // Ignore errors
+            }
+        }
+
+        function previewImage() {
+            const file = document.getElementById('item-photo').files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                // Compress image using Canvas
+                const img = new Image();
+                img.onload = function() {
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    
+                    // Resize to max 400px width
+                    const maxWidth = 400;
+                    const scale = maxWidth / img.width;
+                    const width = maxWidth;
+                    const height = img.height * scale;
+                    
+                    canvas.width = width;
+                    canvas.height = height;
+                    ctx.drawImage(img, 0, 0, width, height);
+                    
+                    // Compress to JPEG 0.6
+                    currentImageBase64 = canvas.toDataURL('image/jpeg', 0.6);
+                    
+                    document.getElementById('photo-preview').src = currentImageBase64;
+                    document.getElementById('preview-container').classList.remove('hidden');
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function clearImage() {
+            document.getElementById('item-photo').value = "";
+            document.getElementById('preview-container').classList.add('hidden');
+            currentImageBase64 = null;
+        }
+
+        function addExpense() {
+            const name = document.getElementById('item-name').value;
+            const price = parseFloat(document.getElementById('item-price').value);
+            
+            if (!name || isNaN(price)) {
+                alert("請輸入正確的品項與金額");
+                return;
+            }
+
+            const expense = {
+                id: Date.now(),
+                name: name,
+                price: price,
+                img: currentImageBase64,
+                date: new Date().toLocaleDateString()
+            };
+
+            let expenses = JSON.parse(localStorage.getItem('trip_expenses') || "[]");
+            expenses.unshift(expense); // Add to top
+            
+            try {
+                localStorage.setItem('trip_expenses', JSON.stringify(expenses));
+            } catch (e) {
+                alert("儲存失敗！可能是照片太多導致容量已滿，請嘗試不加照片。");
+                return;
+            }
+
+            // Reset Form
+            document.getElementById('item-name').value = "";
+            document.getElementById('item-price').value = "";
+            clearImage();
+            
+            renderExpenses();
+        }
+
+        function deleteExpense(id) {
+            if(!confirm("確定刪除此筆紀錄？")) return;
+            let expenses = JSON.parse(localStorage.getItem('trip_expenses') || "[]");
+            expenses = expenses.filter(e => e.id !== id);
+            localStorage.setItem('trip_expenses', JSON.stringify(expenses));
+            renderExpenses();
+        }
+
+        function renderExpenses() {
+            const expenses = JSON.parse(localStorage.getItem('trip_expenses') || "[]");
+            const rate = parseFloat(localStorage.getItem('trip_rate') || 0.22);
+            const listEl = document.getElementById('expense-list');
+            
+            let totalJPY = 0;
+            let html = "";
+
+            expenses.forEach(ex => {
+                totalJPY += ex.price;
+                const twd = Math.round(ex.price * rate);
+                
+                html += `
+                    <div class="card p-3 rounded-lg flex items-center justify-between animate-fade">
+                        <div class="flex items-center space-x-3">
+                            ${ex.img ? `<img src="${ex.img}" class="w-12 h-12 rounded object-cover border border-gray-600" onclick="alert('預覽功能簡化中')">` : '<div class="w-12 h-12 bg-gray-800 rounded flex items-center justify-center text-gray-600"><i class="fas fa-receipt"></i></div>'}
+                            <div>
+                                <p class="text-white font-bold text-sm">${ex.name}</p>
+                                <p class="text-xs text-gray-500">${ex.date}</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-gold-300 font-mono text-sm">¥${ex.price}</p>
+                            <p class="text-gray-400 text-xs">≈ NT$${twd}</p>
+                            <button onclick="deleteExpense(${ex.id})" class="text-red-900 text-[10px] mt-1">刪除</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            listEl.innerHTML = html || '<div class="text-center text-gray-600 text-sm mt-10">尚無記帳紀錄</div>';
+            
+            document.getElementById('total-jpy').innerText = `¥ ${totalJPY.toLocaleString()}`;
+            document.getElementById('total-twd').innerText = `NT$ ${Math.round(totalJPY * rate).toLocaleString()}`;
+        }
+
+        function loadWallet() {
+            renderExpenses();
+        }
+
+
+        // --- Lists Logic ---
+        const defaultChecklist = ["護照", "網卡 / ESIM", "填寫 Visit Japan Web", "行動電源", "個人藥品", "現金 / 信用卡"];
+
+        function loadChecklist() {
+            let saved = JSON.parse(localStorage.getItem('trip_checklist') || "[]");
+            if (saved.length === 0) {
+                saved = defaultChecklist.map(item => ({ text: item, checked: false }));
+            }
+            renderChecklist(saved);
+        }
+
+        function toggleCheck(index) {
+            let saved = JSON.parse(localStorage.getItem('trip_checklist'));
+            saved[index].checked = !saved[index].checked;
+            localStorage.setItem('trip_checklist', JSON.stringify(saved));
+            renderChecklist(saved);
+        }
+
+        function renderChecklist(items) {
+            const container = document.getElementById('checklist-container');
+            let html = "";
+            items.forEach((item, index) => {
+                html += `
+                    <li class="flex items-center justify-between p-3 bg-gray-900/50 rounded border border-gray-700 cursor-pointer ${item.checked ? 'opacity-50' : ''}" onclick="toggleCheck(${index})">
+                        <span class="${item.checked ? 'line-through text-gray-500' : 'text-gray-200'}">${item.text}</span>
+                        <i class="fas ${item.checked ? 'fa-check-circle text-gold-500' : 'fa-circle text-gray-700'}"></i>
+                    </li>
+                `;
+            });
+            container.innerHTML = html;
+            // Also save initially if it was empty
+            if(!localStorage.getItem('trip_checklist')) {
+                 localStorage.setItem('trip_checklist', JSON.stringify(items));
+            }
+        }
+
+        function loadMemo() {
+            const text = localStorage.getItem('trip_memo') || "";
+            document.getElementById('memo-area').value = text;
+            extractLinks(text);
+        }
+
+        function saveMemo() {
+            const text = document.getElementById('memo-area').value;
+            localStorage.setItem('trip_memo', text);
+            extractLinks(text);
+        }
+
+        function extractLinks(text) {
+            const urlRegex = /(https?:\/\/[^\s]+)/g;
+            const matches = text.match(urlRegex);
+            const container = document.getElementById('memo-links');
+            
+            if (matches) {
+                container.innerHTML = matches.map((url, i) => `
+                    <a href="${url}" target="_blank" class="inline-flex items-center text-[10px] bg-gray-800 border border-gold-500/50 text-gold-300 px-2 py-1 rounded-full truncate max-w-full hover:bg-gold-500 hover:text-black transition">
+                        <i class="fas fa-link mr-1"></i> 連結 ${i+1}
+                    </a>
+                `).join('');
+            } else {
+                container.innerHTML = "";
+            }
+        }
+
+    </script>
+</body>
+</html>
